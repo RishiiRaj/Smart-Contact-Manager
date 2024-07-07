@@ -1,12 +1,39 @@
-<div class="parent-fragment" th:fragment="parent(content)">
-  <h1>this is parent fragment</h1>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque facere aut
-    repudiandae asperiores dolor veritatis nemo amet. Earum, sequi pariatur.
-  </p>
-  <div th:replace="${content}"></div>
-</div>
-
-<div th:fragment="test">
-  <p>this is second testing fragment</p>
-</div>
+<!DOCTYPE html>
+<html
+  class="light"
+  lang="en"
+  th:fragment="parent(content,title)"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:replace="${title}">Base Page</title>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <!-- font awesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="dark:bg-gray-900 dark:text-white">
+    <!-- common header -->
+    <div th:replace="navbar :: navbar"></div>
+    <!-- main content -->
+    <div class="p-4">
+      <section th:replace="${content}"></section>
+    </div>
+    <!-- Flowbite content -->
+    <!-- common footer -->
+    <footer>This is the common footer</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script data-th-src="@{'/js/script.js'}"></script>
+  </body>
+</html>

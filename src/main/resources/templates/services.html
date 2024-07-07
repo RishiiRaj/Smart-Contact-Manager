@@ -1,27 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title})}">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title id="title">Services Page</title>
+    <section id="content">
+      <h1>Welcome to Services Page</h1>
+      <h2>Services offered By SCM</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut provident
+        officia sit repellat alias necessitatibus officiis, illo perspiciatis
+        excepturi aliquid eaque dolorum asperiores, ratione nihil in voluptatum
+        aliquam autem soluta, aperiam hic repellendus! Ratione suscipit
+        praesentium tempora ipsam minima veritatis!
+      </p>
+    </section>
   </head>
-  <body>
-    <h1>This is services page</h1>
-    <hr />
-    <!-- using fragment -->
-    <div class="host-tag" th:insert="~{base :: parent(~{::.third-content})}">
-      <section id="main-content">
-        <p>This is dynamic first content for Base Page</p>
-        <button>Click on dynamic services</button>
-      </section>
-      <section id="second-content">
-        <p>This is dynamic second content for Base Page</p>
-        <button>Click on dynamic services</button>
-      </section>
-      <section class="third-content">
-        <p>This is dynamic third  content for Base Page</p>
-        <button>Click on dynamic services</button>
-      </section>
-    </div>
-  </body>
+  <body></body>
 </html>
