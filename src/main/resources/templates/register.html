@@ -28,7 +28,12 @@
               Start managing contacts on cloud.
             </p>
             <!-- Form begins -->
-            <form action="" class="mt-5">
+            <form
+              data-th-action="@{/do-register}"
+              method="post"
+              th:object="${userForm}"
+              class="mt-5"
+            >
               <!-- name -->
               <div class="mb-3">
                 <label
@@ -39,6 +44,7 @@
                 <input
                   type="text"
                   id="name"
+                  th:field="*{name}"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Enter name here..."
                   required
@@ -54,6 +60,7 @@
                 <input
                   type="email"
                   id="email"
+                  th:field="*{email}"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@flowbite.com"
                   required
@@ -69,6 +76,7 @@
                 <input
                   type="password"
                   id="password"
+                  th:field="*{password}"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Enter password..."
                   required
@@ -84,6 +92,7 @@
                 <input
                   type="text"
                   id="phone"
+                  th:field="*{phoneNumber}"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Enter Phone number..."
                   required
@@ -98,20 +107,24 @@
                 >
                 <textarea
                   id="about"
+                  th:field="*{about}"
                   rows="6"
                   class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Write something about yourself here..."
                 ></textarea>
               </div>
               <!-- Buttons -->
+              <!-- Make sure buttons are inside the form tag, or else it will not work -->
               <div class="mb-3 flex justify-center space-x-3">
                 <button
+                  type="submit"
                   class="px-3 py-2 rounded bg-gray-800 text-white dark:bg-blue-800 dark:hover:bg-blue-700 hover:bg-gray-900"
                 >
                   Sign-Up
                 </button>
                 <button
-                  class="px-3 py-2 rounded bg-orange-800 text-white dark:bg-orange-800 dark:hover:bg-orange-700 hover:bg-orange-900"
+                  type="reset"
+                  class="px-3 py-2 rounded bg-orange-600 text-white dark:bg-orange-800 dark:hover:bg-orange-700 hover:bg-orange-900"
                 >
                   Reset
                 </button>
