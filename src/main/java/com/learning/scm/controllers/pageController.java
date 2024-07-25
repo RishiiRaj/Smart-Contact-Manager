@@ -18,6 +18,7 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class pageController {
@@ -45,6 +46,12 @@ public class pageController {
     public String servicesPage() {
         System.out.println("services Page handler");
         return "services";
+    }
+
+    // sirf slash url ko home pe redirect kar dega
+    @GetMapping("/")
+    public String getMethodName() {
+        return "redirect:/home";
     }
 
     @GetMapping("/contact")

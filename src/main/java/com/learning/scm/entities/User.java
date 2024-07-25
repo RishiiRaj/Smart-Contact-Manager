@@ -1,7 +1,6 @@
 package com.learning.scm.entities;
 
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -45,7 +44,7 @@ public class User implements UserDetails {
     private String profilePic;
     private String phoneNumber;
     // information
-    private boolean enabled = false;
+    private boolean enabled = true;
     private boolean emailVerified = false;
     private boolean phoneVerified = false;
 
