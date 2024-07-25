@@ -3,6 +3,7 @@ package com.learning.scm.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -13,6 +14,7 @@ import com.learning.scm.helpers.MessageType;
 import com.learning.scm.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -65,14 +67,18 @@ public class pageController {
 
     // processing register of new signup
     @RequestMapping(value = "/do-register", method = RequestMethod.POST)
-    public String processRegister(@ModelAttribute UserForm userForm, HttpSession session)
+    public String processRegister(@Valid @ModelAttribute UserForm userForm, BindingResult rBindingResult,
+            HttpSession session)
     // by using @ModelAttibute, the field names in form will get mapped
     // automatically to the same name variables in UserForm class
     {
         System.out.println("Processing register");
         // fetch form data
-        // validate form data
         System.out.println(userForm);
+        // validate form data
+        if (rBindingResult.hasErrors()) {
+            return "register";
+        }
         // save data to DB
 
         // USer form se user banaya hai
